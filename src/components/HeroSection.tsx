@@ -40,14 +40,14 @@ export default function HeroSection() {
           </div>
 
           <p className="text-muted-foreground text-lg max-w-lg leading-relaxed" style={{ textWrap: "pretty" }}>
-            Transforming complex datasets into actionable insights and intelligent solutions — with a focus on predictive modeling and visual storytelling.
+            A Data Analyst and aspiring AI/ML Engineer skilled in Python, SQL, Power BI, and machine learning. I specialize in transforming complex data into actionable insights and building data-driven solutions.         
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-1">
             <a
               href="#projects"
-              className="group px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 active:scale-[0.97] inline-flex items-center gap-2"
-            >
+              className="group px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 active:scale-[0.97] inline-flex items-center gap-2">
+              
               View Projects
               <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -55,8 +55,8 @@ export default function HeroSection() {
             </a>
             <a
               href="#contact"
-              className="px-7 py-3.5 rounded-full border border-border text-foreground font-medium text-sm hover:bg-secondary hover:border-transparent transition-all duration-300 active:scale-[0.97]"
-            >
+              className="px-7 py-3.5 rounded-full border border-border text-foreground font-medium text-sm hover:bg-secondary hover:border-transparent transition-all duration-300 active:scale-[0.97]">
+              
               Contact Me
             </a>
           </div>
@@ -66,21 +66,21 @@ export default function HeroSection() {
             <span className="text-xs text-muted-foreground/60 uppercase tracking-widest font-medium">Find me</span>
             <span className="w-8 h-px bg-border" />
             {[
-              { icon: Github, href: "https://github.com/priyanshusharma0045", label: "GitHub" },
-              { icon: Linkedin, href: "https://www.linkedin.com/in/priyanshu-sharma-128986352/", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:bhardawajpriyanshu@gmail.com", label: "Email" },
-            ].map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent/40 transition-colors duration-200 active:scale-[0.95]"
-              >
+            { icon: Github, href: "https://github.com/priyanshusharma0045", label: "GitHub" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/priyanshu-sharma-128986352/", label: "LinkedIn" },
+            { icon: Mail, href: "mailto:bhardawajpriyanshu@gmail.com", label: "Email" }].
+            map(({ icon: Icon, href, label }) =>
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent/40 transition-colors duration-200 active:scale-[0.95]">
+              
                 <Icon className="w-4 h-4" />
               </a>
-            ))}
+            )}
           </div>
         </div>
 
@@ -95,8 +95,8 @@ export default function HeroSection() {
               <img
                 src={profilePhoto}
                 alt="Priyanshu Sharma"
-                className="w-full h-full object-cover"
-              />
+                className="w-full h-full object-cover" />
+              
             </div>
 
             {/* Floating badges */}
@@ -116,6 +116,6 @@ export default function HeroSection() {
         <span className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground/50 font-medium">Scroll</span>
         <ArrowDown className="w-4 h-4 text-muted-foreground/40 animate-bounce" />
       </div>
-    </section>
-  );
+    </section>);
+
 }
