@@ -1,4 +1,4 @@
-import profilePhoto from "@/assets/profile-photo.jpg";
+const profilePhoto = "https://i.postimg.cc/s2CQcjN6/Priyanshu-main-image.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
@@ -84,29 +84,26 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Photo card */}
+        {/* Photo */}
         <div className={`flex justify-center md:justify-end ${visible ? "animate-slide-left" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>
           <div className="relative">
-            {/* Decorative ring */}
-            <div className="absolute -inset-3 rounded-[2rem] border border-accent/10 pointer-events-none" />
+            {/* Decorative rings */}
+            <div className="absolute -inset-3 rounded-full border border-accent/10 pointer-events-none" />
+            <div className="absolute -inset-6 rounded-full border border-accent/[0.05] pointer-events-none" />
 
-            <div className="card-surface p-4 rounded-3xl relative">
+            <div className="w-64 h-64 sm:w-72 sm:h-72 rounded-full overflow-hidden ring-4 ring-background shadow-xl">
               <img
                 src={profilePhoto}
                 alt="Priyanshu Sharma"
-                className="w-64 h-72 sm:w-72 sm:h-80 object-cover rounded-2xl"
+                className="w-full h-full object-cover"
               />
-              <div className="mt-3 px-1">
-                <p className="font-display font-semibold text-lg">Priyanshu Sharma</p>
-                <p className="text-muted-foreground text-sm">Chennai, India</p>
-              </div>
             </div>
 
             {/* Floating badges */}
-            <div className="absolute -bottom-4 -left-4 card-surface px-4 py-2.5 rounded-xl text-xs font-medium shadow-lg flex items-center gap-2">
+            <div className="absolute -bottom-2 left-2 card-surface px-4 py-2.5 rounded-xl text-xs font-medium shadow-lg flex items-center gap-2">
               <span>🎓</span> BCA Data Science
             </div>
-            <div className="absolute -top-3 -right-3 card-surface px-3 py-2 rounded-xl text-xs font-medium shadow-lg flex items-center gap-1.5">
+            <div className="absolute -top-1 -right-1 card-surface px-3 py-2 rounded-xl text-xs font-medium shadow-lg flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               <span className="text-accent font-semibold">2+ Projects</span>
             </div>
