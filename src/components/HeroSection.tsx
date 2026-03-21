@@ -1,4 +1,4 @@
-import profilePhoto from "@/assets/profile-photo.jpg";
+const profilePhoto = "https://i.postimg.cc/s2CQcjN6/Priyanshu-main-image.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
