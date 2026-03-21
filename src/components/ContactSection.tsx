@@ -1,6 +1,8 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Mail, Phone, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Send, Loader2 } from "lucide-react";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 const contactInfo = [
   { icon: Mail, label: "bhardawajpriyanshu@gmail.com", href: "mailto:bhardawajpriyanshu@gmail.com" },
@@ -9,9 +11,37 @@ const contactInfo = [
   { icon: Github, label: "GitHub", href: "https://github.com/priyanshusharma0045" },
 ];
 
+const SERVICE_ID = "service_pt8lzwa";
+const TEMPLATE_ID = "template_19n1cau";
+const PUBLIC_KEY = "gvl6LyGOFh4NkFT_1";
+
 export default function ContactSection() {
   const { ref, visible } = useScrollReveal();
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+        from_name: name,
+        from_email: email,
+        message: message,
+      }, PUBLIC_KEY);
+
+      setSubmitted(true);
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+      console.error("EmailJS error:", error);
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <section id="contact" ref={ref} className="section-padding bg-secondary/30">
@@ -56,15 +86,14 @@ export default function ContactSection() {
                 <p className="text-muted-foreground text-sm">I'll get back to you soon.</p>
               </div>
             ) : (
-              <form
-                onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-                className="space-y-5"
-              >
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label className="text-sm font-medium mb-2 block">Name</label>
                   <input
                     required
                     type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl bg-secondary/80 border border-border/40 text-sm outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/40 transition-all"
                     placeholder="Your name"
                   />
@@ -74,6 +103,8 @@ export default function ContactSection() {
                   <input
                     required
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl bg-secondary/80 border border-border/40 text-sm outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/40 transition-all"
                     placeholder="you@example.com"
                   />
@@ -83,16 +114,28 @@ export default function ContactSection() {
                   <textarea
                     required
                     rows={4}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl bg-secondary/80 border border-border/40 text-sm outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/40 transition-all resize-none"
                     placeholder="What would you like to discuss?"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl bg-primary text-primary-foreground font-medium text-sm hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 active:scale-[0.98] inline-flex items-center justify-center gap-2"
+                  disabled={sending}
+                  className="w-full py-3.5 rounded-xl bg-primary text-primary-foreground font-medium text-sm hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 active:scale-[0.98] inline-flex items-center justify-center gap-2 disabled:opacity-60 disabled:pointer-events-none"
                 >
-                  Send Message
-                  <Send className="w-4 h-4" />
+                  {sending ? (
+                    <>
+                      Sending...
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </form>
             )}
