@@ -14,7 +14,7 @@ const projects = [
     description: "End-to-end data pipeline from preprocessing to database to visualization. Identified top-performing vendors, profitability patterns, and sales vs purchase trends to highlight business impact.",
     tags: ["Python", "SQL", "Data Pipeline"],
     metrics: "Full pipeline",
-    github: "https://github.com/priyanshusharma0045",
+    github: "https://github.com/priyanshusharma0045/vendor-sales-analysis",
   },
 ];
 
