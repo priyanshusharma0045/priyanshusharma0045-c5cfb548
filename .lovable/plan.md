@@ -1,25 +1,15 @@
 
 
-## Plan: Integrate EmailJS with Contact Form
+## Plan: Add Resume Download Button in Hero Section
 
-Since the EmailJS public key is a publishable key, it's safe to store directly in the codebase.
+Add a "Download Resume" button next to the existing "View Projects" and "Contact Me" buttons in the hero section.
 
-### Steps
+### Changes
 
-1. **Install `@emailjs/browser` package** as a dependency.
+**`src/components/HeroSection.tsx`**:
+- Import `Download` icon from `lucide-react`
+- Add a third button styled similarly to "Contact Me" (outline style) with a `Download` icon, linking to the resume PDF
+- Use an `<a>` tag with `download` attribute pointing to a PDF file in `/public`
 
-2. **Update `ContactSection.tsx`**:
-   - Import `emailjs` from `@emailjs/browser`
-   - Add state for form fields (`name`, `email`, `message`) and a `sending` loading state
-   - Replace the dummy `onSubmit` with an `emailjs.send()` call using:
-     - Service ID: `service_pt8lzwa`
-     - Template ID: `template_19n1cau`
-     - Public Key: `gvl6LyGOFh4NkFT_1`
-   - Pass form data as template parameters (`from_name`, `from_email`, `message`)
-   - Show loading state on the button while sending
-   - Handle errors with a toast notification
-   - On success, show the existing "Message sent!" state
-
-### Important Note
-Make sure your EmailJS email template uses matching variable names (`from_name`, `from_email`, `message`). You can adjust these in your EmailJS dashboard under **Email Templates** if needed.
+Since no resume PDF has been provided yet, I'll use a placeholder path (`/resume.pdf`). You can drop your resume file as `public/resume.pdf` to make it work.
 
