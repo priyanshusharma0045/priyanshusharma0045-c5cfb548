@@ -7,7 +7,7 @@ const projects = [
     description: "Built a Power BI dashboard analyzing employee attrition and key HR KPIs. Processed 75,000+ records with thorough EDA and data preprocessing to improve decision-making through visual insights.",
     tags: ["Power BI", "EDA", "Data Preprocessing"],
     metrics: "75K+ records",
-    github: "https://github.com/priyanshusharma0045",
+    github: "https://github.com/priyanshusharma0045/HR-Analytic-dasboard",
   },
   {
     title: "Vendor Sales Analysis",
