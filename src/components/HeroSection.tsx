@@ -56,8 +56,14 @@ export default function HeroSection() {
             <a
               href="#contact"
               className="px-7 py-3.5 rounded-full border border-border text-foreground font-medium text-sm hover:bg-secondary hover:border-transparent transition-all duration-300 active:scale-[0.97]">
-              
               Contact Me
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              className="px-7 py-3.5 rounded-full border border-border text-foreground font-medium text-sm hover:bg-secondary hover:border-transparent transition-all duration-300 active:scale-[0.97] inline-flex items-center gap-2">
+              <Download className="w-4 h-4" />
+              Resume
             </a>
           </div>
 
