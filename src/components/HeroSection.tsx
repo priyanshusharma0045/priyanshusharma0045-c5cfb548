@@ -1,6 +1,6 @@
 const profilePhoto = "https://i.postimg.cc/s2CQcjN6/Priyanshu-main-image.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 
 export default function HeroSection() {
   const { ref, visible } = useScrollReveal(0.1);
@@ -56,8 +56,14 @@ export default function HeroSection() {
             <a
               href="#contact"
               className="px-7 py-3.5 rounded-full border border-border text-foreground font-medium text-sm hover:bg-secondary hover:border-transparent transition-all duration-300 active:scale-[0.97]">
-              
               Contact Me
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              className="px-7 py-3.5 rounded-full border border-border text-foreground font-medium text-sm hover:bg-secondary hover:border-transparent transition-all duration-300 active:scale-[0.97] inline-flex items-center gap-2">
+              <Download className="w-4 h-4" />
+              Resume
             </a>
           </div>
 
