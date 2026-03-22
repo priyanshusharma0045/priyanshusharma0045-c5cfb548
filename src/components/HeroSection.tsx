@@ -1,6 +1,6 @@
 const profilePhoto = "https://i.postimg.cc/s2CQcjN6/Priyanshu-main-image.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 
 export default function HeroSection() {
   const { ref, visible } = useScrollReveal(0.1);
