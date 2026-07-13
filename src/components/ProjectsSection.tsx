@@ -16,6 +16,13 @@ const projects = [
     metrics: "Full pipeline",
     github: "https://github.com/priyanshusharma0045/vendor-sales-analysis",
   },
+  {
+    title: "Demand Forecasting",
+    description: "Time-series forecasting model predicting future demand using historical sales data. Applied feature engineering and evaluated multiple regression models to deliver accurate, business-ready forecasts.",
+    tags: ["Python", "Time Series", "ML"],
+    metrics: "Forecasting model",
+    github: "https://github.com/priyanshusharma0045/Demand-Forecasting",
+  },
 ];
 
 export default function ProjectsSection() {
